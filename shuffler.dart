@@ -29,8 +29,13 @@ List<Carta> shuffleDeck(List<Carta> deck){
   List<Carta> shuffledDeck = [];
   Random random = new Random(DateTime.now().microsecondsSinceEpoch);
 
-  for(var i = 0; i < deck.length; i++){
-    shuffledDeck.add(deck[random.nextInt(deck.length)]);
+  for(var i = 0; i < 40; i++){
+
+    var randomNumber = random.nextInt(deck.length);
+
+    shuffledDeck.add(deck[randomNumber]);
+    
+    deck.removeAt(randomNumber);
   }
 
   return shuffledDeck;
@@ -47,5 +52,7 @@ void main() {
   for(int i = 0; i < shuffled.length; i++){
     print(shuffled[i]);
   }
+
+  print(shuffled.length);
 
 }
